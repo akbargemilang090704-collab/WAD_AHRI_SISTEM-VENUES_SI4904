@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -10,16 +11,17 @@ Route::get('/', function () {
 Route::resource('lapangan', LapanganController::class);
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/admin/dashboard', function () {
-        return "Halo Admin! Ini halaman khusus admin.";
-    })->middleware(function ($request, $next) {
-        if (auth()->user()->role == 'admin') {
-            return $next($request);
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Unauthorized. Khusus Admin!');
         }
-        abort(403, 'Unauthorized. Khusus Admin!');
+
+        return "Halo Admin! Ini halaman khusus admin.";
     });
 
     Route::get('/mahasiswa/dashboard', function () {
         return "Halo Mahasiswa! Ini halaman venue.";
     });
+
 });
