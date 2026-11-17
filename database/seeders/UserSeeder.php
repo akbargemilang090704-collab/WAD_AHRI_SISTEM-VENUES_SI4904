@@ -2,15 +2,12 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         // Akun Admin
@@ -21,12 +18,12 @@ class UserSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        // Akun Mahasiswa
+        // Akun Pelanggan
         User::create([
-            'name' => 'Bulan Mahasiswa',
-            'email' => 'mahasiswa@sistemvenue.com',
+            'name' => 'Pelanggan Setia',
+            'email' => 'pelanggan@sistemvenue.com',
             'password' => Hash::make('password123'),
-            'role' => 'mahasiswa',
+            'role' => 'pelanggan',
         ]);
     }
 }

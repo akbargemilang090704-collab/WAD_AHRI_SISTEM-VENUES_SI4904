@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -15,8 +16,10 @@
 
     <h1>Daftar Lapangan</h1>
     <p>Berikut adalah data lapangan yang tersedia:</p>
-    <a href="/lapangan/create">+ Tambah Lapangan Baru</a>
 
+    @if(auth()->user()->role === 'admin')
+        <a href="/lapangan/create">+ Tambah Lapangan Baru</a>
+    @endif
 
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
@@ -26,7 +29,10 @@
                 <th>Jenis</th>
                 <th>Harga / Jam</th>
                 <th>Deskripsi</th>
-                <th>Aksi</th>
+
+                @if(auth()->user()->role === 'admin')
+                    <th>Aksi</th>
+                @endif
             </tr>
         </thead>
         <tbody>
@@ -37,14 +43,22 @@
                 <td>{{ $lapangan->jenis }}</td>
                 <td>Rp {{ number_format($lapangan->harga, 0, ',', '.') }}</td>
                 <td>{{ $lapangan->deskripsi }}</td>
-                <td>
-                    <a href="{{ route('lapangan.edit', $lapangan->id) }}">Edit</a>
-                    <form action="{{ route('lapangan.destroy', $lapangan->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Yakin mau hapus data ini?')">Hapus</button>
-                    </form>
-                </td>
+
+                @if(auth()->user()->role === 'admin')
+                    <td>
+                        <a href="{{ route('lapangan.edit', $lapangan->id) }}">Edit</a>
+
+                        <form action="{{ route('lapangan.destroy', $lapangan->id) }}"
+                              method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                onclick="return confirm('Yakin mau hapus data ini?')">
+                                Hapus
+                            </button>
+                        </form>
+                    </td>
+                @endif
             </tr>
             @endforeach
         </tbody>
