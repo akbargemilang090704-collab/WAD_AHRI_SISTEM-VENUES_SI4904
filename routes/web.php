@@ -1,22 +1,7 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\AlatOlahragaController;
 
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/', function () {
-        return redirect()->route('members.index');
-    });
-    Route::resource('members', MemberController::class)->only(['index']);
-    Route::middleware('role:admin')->group(function () {
-        Route::resource('members', MemberController::class)->except(['index']);
-    });
-});
+Route::redirect('/', '/alat-olahraga');
+Route::resource('alat-olahraga', AlatOlahragaController::class)->only(['index', 'store', 'update', 'destroy']);
