@@ -7,10 +7,7 @@ use App\Models\Instruktur;
 use App\Models\Lapangan;
 use Illuminate\Http\Request;
 
-/**
- * Halaman informasi HANYA-BACA untuk role user.
- * Tidak ada tambah/ubah/hapus. Data pelanggan & pengguna tidak ditampilkan.
- */
+
 class InformasiController extends Controller
 {
     private function cari(Request $request): string

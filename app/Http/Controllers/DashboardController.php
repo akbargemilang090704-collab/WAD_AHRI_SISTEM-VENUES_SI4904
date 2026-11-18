@@ -10,13 +10,13 @@ use App\Models\User;
 
 class DashboardController extends Controller
 {
-    // Pintu /dashboard: arahkan ke dashboard yang sesuai role.
+
     public function index()
     {
         return redirect()->route(auth()->user()->isAdmin() ? 'admin.dashboard' : 'user.dashboard');
     }
 
-    // Dashboard admin (isi lama dashboard, tidak diubah).
+  
     public function admin()
     {
         $data = [
@@ -37,7 +37,7 @@ class DashboardController extends Controller
         return view('dashboard', $data);
     }
 
-    // Dashboard user: ringkasan informasi saja (tanpa data pelanggan/pengguna).
+
     public function user()
     {
         return view('user.dashboard', [
