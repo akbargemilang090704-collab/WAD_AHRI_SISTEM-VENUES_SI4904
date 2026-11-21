@@ -1,0 +1,12 @@
+* [33mb6e8921[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfitur-role-access[m[33m, [m[1;31morigin/fitur-role-access[m[33m)[m Add authentication and role access middleware
+* [33mf687e41[m feat: tambahkan UserSeeder untuk akun default admin dan mahasiswa
+* [33m2172fc1[m feat: tambahkan role mahasiswa pada database users
+* [33m85c2e0e[m fix: perbaiki struktur middleware role pada routes
+* [33mf7b1cab[m feat: tambahkan proteksi role access pada routes
+* [33m6a2669d[m feat: tambahkan role ke fillable model User
+* [33md72672b[m feat: menambahkan kolom role pada migration user
+*   [33m7fa0b69[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m Merge PHP Native progress
+[32m|[m[33m\[m  
+[32m|[m * [33meb35a67[m Modul 2
+* [33mee00b4c[m Modul 3
+* [33m2e9c6c3[m[33m ([m[1;31mteam/main[m[33m, [m[1;31mteam/HEAD[m[33m)[m Middleware dan Authorization
