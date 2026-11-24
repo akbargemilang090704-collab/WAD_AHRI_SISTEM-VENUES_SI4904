@@ -1,3 +1,6 @@
+﻿<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -172,7 +175,7 @@
 
     <section class="table-card" aria-label="Daftar alat olahraga">
         @if ($alatOlahragas->isEmpty())
-            <div class="empty-state">Belum ada alat olahraga. Pilih “Tambah Alat Baru” untuk mulai mengisi inventaris.</div>
+            <div class="empty-state">Belum ada alat olahraga. Pilih â€œTambah Alat Baruâ€ untuk mulai mengisi inventaris.</div>
         @else
             <table>
                 <thead>
@@ -308,3 +311,4 @@
 </script>
 </body>
 </html>
+
