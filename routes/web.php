@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
 
     Route::get('/admin/dashboard', function () {
-        return 'Halo Admin! Ini halaman khusus admin.';
+        return redirect()->route('dashboard');
     })->middleware('admin');
 
     Route::get('/pelanggan/dashboard', function () {
@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
             abort(403, 'Unauthorized. Khusus Pelanggan!');
         }
 
-        return 'Halo Pelanggan! Selamat datang di Sistem Venue.';
+        return redirect()->route('dashboard');
     });
 
     Route::middleware('admin')->group(function () {
